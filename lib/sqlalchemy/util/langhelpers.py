@@ -1657,7 +1657,7 @@ class _IntFlagMeta(type):
         items: List[symbol]
         cls._items = items = []
         for k, v in dict_.items():
-            if isinstance(v, int):
+            if isinstance(v, int) and k != "__firstlineno__":
                 sym = symbol(k, canonical=v)
             elif not k.startswith("_"):
                 raise TypeError("Expected integer values for IntFlag")
